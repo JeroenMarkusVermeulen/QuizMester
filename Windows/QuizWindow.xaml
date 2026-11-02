@@ -1,0 +1,84 @@
+<Window x:Class="Quizmester.Windows.QuizWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quizmester - Quiz" Height="770" Width="1050" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="CategoryText" FontSize="18" Foreground="{DynamicResource AccentBrush}" FontWeight="Bold"/>
+                <TextBlock x:Name="ScoreText" Text="Score: 0" FontSize="24" FontWeight="Bold"/>
+                <TextBlock x:Name="ProgressText" Text="Vraag 1" FontSize="14" Foreground="{DynamicResource MutedTextBrush}"/>
+            </StackPanel>
+            <Border Grid.Column="1" Background="#172554" CornerRadius="12" Padding="16,10" Margin="8">
+                <StackPanel>
+                    <TextBlock x:Name="QuizTimerTitle" Text="QUIZTIJD" Foreground="#BFDBFE" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="QuizTimerText" Text="60" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border x:Name="QuestionTimerPanel" Grid.Column="2" Background="#164E63" CornerRadius="12" Padding="16,10" Margin="8">
+                <StackPanel>
+                    <TextBlock Text="VRAAGTIJD" Foreground="#CFFAFE" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="QuestionTimerText" Text="5" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="4,14,4,0">
+            <StackPanel>
+                <Border x:Name="SpecialBanner" Visibility="Collapsed" Background="#B45309" BorderBrush="#FDE68A" BorderThickness="2" CornerRadius="12" Padding="12" Margin="0,0,0,10">
+                    <TextBlock Text="&#x2605;  SPECIALE BONUSVRAAG!  &#x2605;    +20 extra punten voor het juiste antwoord"
+                               Foreground="White" FontSize="18" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap"/>
+                </Border>
+                <TextBlock x:Name="PenaltyText" Visibility="Collapsed" Text="0 fout · +0 sec straftijd" Foreground="#FDE68A" FontSize="15" FontWeight="SemiBold" TextAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <Border x:Name="QuestionPanel" Grid.Row="2" Background="{DynamicResource PanelBrush}"
+                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="2" CornerRadius="20" Padding="30" Margin="0,17,0,16">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="QuestionText" FontSize="27" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,14,0,24"/>
+                <UniformGrid Grid.Row="1" Columns="2" Rows="2">
+                    <Button x:Name="AnswerButton1" Click="Answer_Click" FontSize="18" MinHeight="105" Margin="8" Background="#253751">
+                        <TextBlock Text="A" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="AnswerButton2" Click="Answer_Click" FontSize="18" MinHeight="105" Margin="8" Background="#253751">
+                        <TextBlock Text="B" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="AnswerButton3" Click="Answer_Click" FontSize="18" MinHeight="105" Margin="8" Background="#253751">
+                        <TextBlock Text="C" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="AnswerButton4" Click="Answer_Click" FontSize="18" MinHeight="105" Margin="8" Background="#253751">
+                        <TextBlock Text="D" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
+                </UniformGrid>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="StatusText" Grid.Column="0" Foreground="{DynamicResource MutedTextBrush}" VerticalAlignment="Center" FontSize="15" TextWrapping="Wrap"/>
+            <Button x:Name="FiftyFiftyButton" Grid.Column="1" Content="50/50 - verwijder 2 antwoorden" Click="FiftyFifty_Click" Background="#0369A1" MinWidth="235" Height="48"/>
+            <Button x:Name="SkipButton" Grid.Column="2" Content="Joker: vraag overslaan" Click="Skip_Click" Background="#B45309" MinWidth="205" Height="48"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+<Window x:Class="Quizmester.Windows.QuestionEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vraag beheren" Height="720" Width="720" ResizeMode="NoResize">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="30">
+            <Border Background="{StaticResource PanelBrush}" CornerRadius="18" Padding="30">
+                <StackPanel>
+                    <TextBlock x:Name="TitleText" Text="Vraag toevoegen" FontSize="28" FontWeight="Bold"/>
+                    <TextBlock Text="Categorie" Margin="0,18,0,0"/>
+                    <ComboBox x:Name="CategoryCombo" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                    <TextBlock Text="Vraag"/>
+                    <TextBox x:Name="QuestionBox" Height="75" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+                    <TextBlock Text="Vier antwoorden - kies precies één correct antwoord" FontWeight="Bold" Margin="0,10,0,8"/>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <RadioButton x:Name="Correct1Radio" Grid.Column="0" GroupName="Correct" VerticalAlignment="Center" Margin="0,0,10,0" ToolTip="Correct antwoord"/>
+                        <TextBox x:Name="Answer1Box" Grid.Column="1"/>
+                    </Grid>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <RadioButton x:Name="Correct2Radio" Grid.Column="0" GroupName="Correct" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBox x:Name="Answer2Box" Grid.Column="1"/>
+                    </Grid>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <RadioButton x:Name="Correct3Radio" Grid.Column="0" GroupName="Correct" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBox x:Name="Answer3Box" Grid.Column="1"/>
+                    </Grid>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <RadioButton x:Name="Correct4Radio" Grid.Column="0" GroupName="Correct" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBox x:Name="Answer4Box" Grid.Column="1"/>
+                    </Grid>
+
+                    <TextBlock x:Name="ErrorText" Foreground="#FCA5A5" TextWrapping="Wrap" Margin="0,5,0,8"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Opslaan" Click="Save_Click" Width="140"/>
+                        <Button Content="Annuleren" Click="Cancel_Click" Background="#475569" Width="130"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,30 @@
+<Window x:Class="Quizmester.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quizmester - Inloggen" Height="520" Width="480" ResizeMode="NoResize">
+    <Grid Margin="40">
+        <Border Background="{StaticResource PanelBrush}" CornerRadius="18" Padding="34">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="⚡" FontSize="56" HorizontalAlignment="Center"/>
+                <TextBlock Text="QUIZMESTER" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="Test je kennis. Pak de hoogste score." Foreground="{StaticResource MutedTextBrush}" HorizontalAlignment="Center" Margin="0,4,0,26"/>
+
+                <TextBlock Text="Gebruikersnaam" FontWeight="SemiBold"/>
+                <TextBox x:Name="UsernameBox"/>
+
+                <TextBlock Text="Wachtwoord" FontWeight="SemiBold"/>
+                <PasswordBox x:Name="PasswordBox" KeyDown="PasswordBox_KeyDown"/>
+
+                <TextBlock x:Name="ErrorText" Foreground="#FCA5A5" TextWrapping="Wrap" Margin="0,0,0,8"/>
+                <Button Content="Inloggen" Click="Login_Click" Height="46"/>
+                <Button Content="Nieuw account registreren" Click="Register_Click" Background="#334155" Height="46"/>
+
+                <Border Background="#0B1220" CornerRadius="8" Padding="10" Margin="0,18,0,0">
+                    <TextBlock Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" TextAlignment="Center">
+                        Demo-admin: admin / Admin123!
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

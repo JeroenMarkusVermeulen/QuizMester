@@ -1,0 +1,19 @@
+<Window x:Class="Quizmester.Windows.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quizmester - Resultaat" Height="550" Width="700" ResizeMode="NoResize">
+    <Grid Margin="35">
+        <Border Background="{DynamicResource PanelBrush}" CornerRadius="20" Padding="32">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="&#x1F3C1;" FontSize="50" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="ResultTitleText" Text="Quiz afgelopen" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="ScoreTitleText" Text="Jouw eindscore" Foreground="{DynamicResource MutedTextBrush}" HorizontalAlignment="Center" Margin="0,16,0,0"/>
+                <TextBlock x:Name="ScoreText" FontSize="48" Foreground="{DynamicResource AccentBrush}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="RankText" FontSize="18" FontWeight="SemiBold" TextAlignment="Center" TextWrapping="Wrap" Margin="0,10,0,10"/>
+                <TextBlock x:Name="DetailsText" FontSize="15" Foreground="{DynamicResource MutedTextBrush}" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,16"/>
+                <Button x:Name="ScoreboardButton" Content="Top 10 bekijken" Click="Scoreboard_Click" Height="48"/>
+                <Button Content="Terug naar hoofdmenu" Click="Close_Click" Background="#475569" Height="46"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

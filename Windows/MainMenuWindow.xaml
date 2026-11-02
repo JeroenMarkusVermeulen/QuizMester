@@ -1,0 +1,40 @@
+<Window x:Class="Quizmester.Windows.MainMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quizmester" Height="670" Width="880" ResizeMode="NoResize">
+    <Grid Margin="35">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left">
+                <TextBlock Text="QUIZMESTER" FontSize="34" FontWeight="Bold"/>
+                <TextBlock x:Name="WelcomeText" Foreground="{DynamicResource MutedTextBrush}" FontSize="16"/>
+            </StackPanel>
+            <Border DockPanel.Dock="Right" Background="#172554" CornerRadius="12" Padding="14,8" HorizontalAlignment="Right">
+                <TextBlock x:Name="RoleText" Foreground="#BAE6FD" FontWeight="Bold"/>
+            </Border>
+        </DockPanel>
+
+        <Border Grid.Row="1" Background="{DynamicResource PanelBrush}" CornerRadius="18" Padding="32" Margin="0,28,0,20">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Kies een spelmodus" FontSize="29" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="Ga voor punten of race naar 10 goede antwoorden." Foreground="{DynamicResource MutedTextBrush}" FontSize="15" HorizontalAlignment="Center" Margin="0,8,0,24"/>
+
+                <Button Content="&#x25B6;  Klassieke quiz - 60 seconden" Click="StartQuiz_Click" Height="56" FontSize="18"/>
+                <TextBlock Text="Inclusief bonusvraag, 50/50-joker en het reguliere top 10-scorebord." Foreground="{DynamicResource MutedTextBrush}" TextWrapping="Wrap" Margin="8,0,8,14"/>
+
+                <Button Content="&#x23F1;  Speed Quiz - 10 juiste antwoorden" Click="SpeedQuiz_Click" Height="56" Background="#047857" FontSize="18"/>
+                <TextBlock Text="Geen tijdlimiet. Fout antwoord = 5 seconden straftijd. Verbeter het wereldrecord!" Foreground="{DynamicResource MutedTextBrush}" TextWrapping="Wrap" Margin="8,0,8,14"/>
+
+                <Button Content="&#x1F3C6;  Top 10 klassieke quiz" Click="Scoreboard_Click" Height="50" Background="#0369A1"/>
+                <Button x:Name="AdminButton" Content="&#x2699;  Admin panel" Click="Admin_Click" Height="50" Background="#B45309" Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+
+        <Button Grid.Row="2" Content="Uitloggen" Click="Logout_Click" HorizontalAlignment="Right" Background="#475569" Width="130" Height="44"/>
+    </Grid>
+</Window>
